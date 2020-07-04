@@ -18,6 +18,7 @@
         <th>Sn.</th>
         <th>Name</th>
         <th>Location</th>
+        <th>Co-ordinates</th>
         <th>Date</th>
         <th>Time</th>
       </tr>
@@ -42,6 +43,7 @@
                     <tr>
                         <td><?php echo $res['id']; ?></td>
                         <td><?php echo $res['name']; ?></td>
+                        <td><?php echo $res['coordinates']; ?></td>
                         <td><?php echo $res['location']; ?></td>
                         <td><?php echo $res['date']; ?></td>
                         <td><?php echo $res['time']; ?></td>

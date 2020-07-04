@@ -5,15 +5,28 @@ if(isset($_POST['name']))
     // include"start.php";
     include"database.php";
 
+  //  --------------------------- Fetching the location coordinates----------------------
+
+  $apiUrl = "https://ipinfo.io/";
+
+  $receivedJson = file_get_contents($apiUrl);
+
+  $resultArray = json_decode($receivedJson,true);
+
 	
 
 	$name = $_POST['name'];
-	$locaction = "Nepalgunj";
-	$date = "2020-07-04";
+  $locaction = $resultArray['loc'];
+  $city = $resultArray['city'];
+  $date = "2020-07-04";
+  
+  
+
+  
 
 
 
-    $sql = "INSERT INTO `starttimeinfo` (`name`, `location`, `date`, `time`) VALUES ('$name', '$locaction', '$date', current_timestamp());";
+    $sql = "INSERT INTO `starttimeinfo` (`name`, `location`, `coordinates`, `date`, `time`) VALUES ('$name', '$locaction', '$city',  '$date', current_timestamp());";
     
     mysqli_query($con, $sql);
 
