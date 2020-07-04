@@ -18,7 +18,7 @@ if(isset($_POST['name']))
 	$name = $_POST['name'];
   $locaction = $resultArray['loc'];
   $city = $resultArray['city'];
-  $date = "2020-07-04";
+  $date = date("Y/m/d");
   
   
 
