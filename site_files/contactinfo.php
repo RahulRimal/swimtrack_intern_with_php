@@ -1,9 +1,8 @@
 <?php
 if(isset($_POST['name']))
 {
-		
-    // include"start.php";
     include"database.php";
+    include "links.php";
 
   //  --------------------------- Fetching the location coordinates----------------------
 

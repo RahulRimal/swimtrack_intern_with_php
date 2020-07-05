@@ -8,6 +8,14 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+  <script src="https://code.jquery.com/jquery-2.1.1.min.js" type="text/javascript"></script>
+
+  <style>
+
+
+  </style>
+
+
 </head>
 <body>
 
@@ -32,11 +40,11 @@
                 include "database.php";
                 include "links.php";
 
-                // global $listOfDays;
-                
-                // echo $_SESSION['dayValue'];
+                $dayNoReceived = $_GET['selectedDay'];
 
-                echo $_SESSION['returnedDay'];
+                $fetchByDays = intval($dayNoReceived);
+
+
 
                 $numToAlpha = array(
                   '01'=>"January",
@@ -56,17 +64,21 @@
                 $currentDate = date('Y-m-d');
                 $currentDateSplit = explode("-", $currentDate);
                 $currentMonth = $currentDateSplit[1];
-                $currentDay = $currentDateSplit[2];
+                // $currentDay = $currentDateSplit[2];
+
 
                 ?>
 
-                <h4 class="container"> <?php echo $numToAlpha[$currentMonth]. " ".$currentDay; ?> </h4>
+                <h4 class="container"> <?php echo $numToAlpha[$currentMonth]." ".$dayNoReceived ; ?> </h4>
 
                 <?php
 
 
-                // $selectquery = " select * from starttimeinfo ";
-                $selectQuery = " select * from starttimeinfo where month(date)=$currentMonth ";
+                // $selectQuery = " select * from starttimeinfo where month(date)=$currentMonth ";
+                // $selectQuery = " select * from starttimeinfo where month(date)=$showtype ";
+                $selectQuery = " select * from starttimeinfo where day(date)=$fetchByDays ";
+
+
                 $query = mysqli_query($con,$selectQuery);
 
                 // $nums = mysqli_num_rows($query);
@@ -77,7 +89,7 @@
             ?>
                     
                     <tr>
-                        <td><?php echo $res['id']; ?></td>
+                        <td><?php echo $res['sn']; ?></td>
                         <td><?php echo $res['name']; ?></td>
                         <td><?php echo $res['coordinates']; ?></td>
                         <td><?php echo $res['location']; ?></td>

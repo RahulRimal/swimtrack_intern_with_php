@@ -5,6 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
     <title>Select the day !!</title>
+
+    <style>
+        .daysBut
+    {
+      border: none;
+      background: none;
+      padding: 0px;
+      text-decoration: none;
+      
+    }
+    </style>
+
 </head>
 <body>
 
@@ -35,7 +47,6 @@
 
     $listOfDays = array();
 
-    // $_SESSION['returnedDay'] = "0";
 
     
     ?>
@@ -69,16 +80,28 @@
     <?php 
     foreach ($finalDayList as $dayssss)
     {
-        $_SESSION['returnedDay'] = $dayssss;
         ?>
-        <a href="fetchdata.php"><?php echo $dayssss."&emsp;"; ?></a>
-        
+
+        <a id="dayNoIs" href="#" onclick="sendDay(this)" style="text-decoration: none;"><?php echo $dayssss."&emsp;";?></a>
+
         <?php
     }
-    echo "Session is ".$_SESSION['returnedDay'];
     ?>
     </h3>
     </div>
+
+        <script>
+
+            function sendDay(dayy)
+            {
+                var numm = dayy.innerHTML;
+                console.log(numm);
+                dayy.href = "http://localhost/swimtrack_intern_with_php/site_files/fetchdata.php?selectedDay="+numm; 
+            }
+            
+             
+
+        </script>
 
     </body>
 </html>
