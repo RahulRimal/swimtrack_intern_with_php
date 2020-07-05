@@ -19,7 +19,7 @@
         <th>Name</th>
         <th>Location</th>
         <th>Co-ordinates</th>
-        <th>Date</th>
+        <!-- <th>Date</th> -->
         <th>Time</th>
       </tr>
     </thead>
@@ -27,13 +27,42 @@
 
             <?php
 
+            session_start();
+
                 include "database.php";
                 include "links.php";
 
                 // global $listOfDays;
+                
+                // echo $_SESSION['dayValue'];
+
+                echo $_SESSION['returnedDay'];
+
+                $numToAlpha = array(
+                  '01'=>"January",
+                  '02'=>"February",
+                  '03'=>"March",
+                  '04'=>"April",
+                  '05'=>"May",
+                  '06'=>"June",
+                  '07'=>"July",
+                  '08'=>"August",
+                  '09'=>"September",
+                  '10'=>"October",
+                  '11'=>"November",
+                  '12'=>"December",
+          
+              );
                 $currentDate = date('Y-m-d');
                 $currentDateSplit = explode("-", $currentDate);
                 $currentMonth = $currentDateSplit[1];
+                $currentDay = $currentDateSplit[2];
+
+                ?>
+
+                <h4 class="container"> <?php echo $numToAlpha[$currentMonth]. " ".$currentDay; ?> </h4>
+
+                <?php
 
 
                 // $selectquery = " select * from starttimeinfo ";
@@ -52,13 +81,15 @@
                         <td><?php echo $res['name']; ?></td>
                         <td><?php echo $res['coordinates']; ?></td>
                         <td><?php echo $res['location']; ?></td>
-                        <td><?php echo $res['date']; ?></td>
+                        <!-- <td><?php// echo $res['date']; ?></td> -->
                         <td><?php echo $res['time']; ?></td>
                     </tr>
 
             <?php
 
                 }
+
+                session_destroy();
             ?>
 
 

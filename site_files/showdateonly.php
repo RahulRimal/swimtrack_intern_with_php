@@ -1,3 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <title>Select the day !!</title>
+</head>
+<body>
+
+
 <?php
 
     include "database.php";
@@ -23,10 +34,16 @@
     $currentMonth = $currentDateSplit[1];
 
     $listOfDays = array();
+
+    // $_SESSION['returnedDay'] = "0";
+
     
     ?>
 
-        <h4 class="container"> <?php echo $numToAlpha[$currentMonth]; ?> </h4>
+    <div class="container text-center">
+        <h2><?php echo $numToAlpha[$currentMonth]; ?></h2>
+    </div>
+        
     <?php
     // $selectQuery = " select * from starttimeinfo where date = CURDATE() ";
     $selectQuery = " select * from starttimeinfo where month(date)=$currentMonth ";
@@ -46,6 +63,22 @@
 
     $finalDayList = array_unique($listOfDays);
 
-    foreach ($finalDayList as $dayssss) {
-        echo $dayssss." ";
+    ?>
+    <div class="container text-center">
+    <h3>
+    <?php 
+    foreach ($finalDayList as $dayssss)
+    {
+        $_SESSION['returnedDay'] = $dayssss;
+        ?>
+        <a href="fetchdata.php"><?php echo $dayssss."&emsp;"; ?></a>
+        
+        <?php
     }
+    echo "Session is ".$_SESSION['returnedDay'];
+    ?>
+    </h3>
+    </div>
+
+    </body>
+</html>
