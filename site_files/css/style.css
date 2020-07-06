@@ -99,11 +99,6 @@ body
   color: #777;
 }
 
-/* input.name-field : focus
-{
-  background: #FDE798;
-}*/
-
 .nameInput input:focus
 {
   background: #FDE798 !important;
@@ -159,17 +154,6 @@ body
     color: #777;
   }
 }
-
-
-
-
-
-
-
-
-
-
-
 
 /* --------------------------------------------------------------------------------------------------------- */
 

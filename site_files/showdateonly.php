@@ -60,7 +60,7 @@
     ?>
 
     <div class="container text-center" style="margin-top: 100px; margin-bottom: 50px;">
-        <h2><?php echo $numToAlpha[$selectedMonth]; ?></h2>
+        <h2 id="month-here"><?php echo $numToAlpha[$selectedMonth]; ?></h2>
     </div>
         
     <?php
@@ -82,8 +82,6 @@
     $finalDayList = array_unique($listOfDays);
 
     ?>
-    <!-- <div class="container text-center">
-    <h3> -->
         <div class="container">
         <div class="row" style="display: flex; justify-content: center;">
     <?php 
@@ -94,29 +92,27 @@
         <div id="monthSection" class="container text-center">
         <div class="card border-warning " style="width: 80px; height: 80px ; border-radius: 5px;">
           <div class="card-body text-warning my-2">
-            <h5><a id="dayNoIs" href="#" onclick="sendDay(this)" style="text-decoration: none; color: black;"><?php echo $dayssss."&emsp;";?></a></h5>
+            <h5><a id="dayNoIs" href="#" onclick="sendDay(this)" style="text-decoration: none; color: black;"><?php echo $dayssss;?></a></h5>
           </div>
         </div>
     </div>
 </div>
-
-        <!-- <a id="dayNoIs" href="#" onclick="sendDay(this)" style="text-decoration: none;"><?php// echo $dayssss."&emsp;";?></a> -->
 
         <?php
     }
     ?>
     </div>
     </div>
-    <!-- </h3>
-    </div> -->
 
         <script>
 
             function sendDay(dayy)
             {
-                var numm = dayy.innerHTML;
-                console.log(numm);
-                dayy.href = "http://localhost/swimtrack_intern_with_php/site_files/fetchdata.php?selectedDay="+numm; 
+                var sendMonth = "<?php echo $selectedMonth; ?>"
+                console.log(typeof(sendMonth));
+
+                var selectedDay = dayy.innerHTML;
+                dayy.href = "http://localhost/swimtrack_intern_with_php/site_files/fetchdata.php?selectedMonth="+sendMonth+"&selectedDay="+selectedDay; 
             }
             
              

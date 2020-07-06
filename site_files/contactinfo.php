@@ -40,6 +40,9 @@
 
 	  $receivedJson = file_get_contents($apiUrl);
 
+	  if(!$receivedJson)
+	  		echo ("Error... Check your internet connection and try again !!");
+
 	  $resultArray = json_decode($receivedJson,true);
 
 		

@@ -41,6 +41,7 @@
                 include "links.php";
 
                 $dayNoReceived = $_GET['selectedDay'];
+                $selectedMonth = $_GET['selectedMonth'];
 
                 $fetchByDays = intval($dayNoReceived);
 
@@ -67,8 +68,7 @@
 
 
                 ?>
-
-                <h4 class="container"> <?php echo $numToAlpha[$currentMonth]." ".$dayNoReceived ; ?> </h4>
+                <h4 class="container"> <?php echo $numToAlpha[$selectedMonth]." ".$dayNoReceived ; ?> </h4>
 
                 <?php
 
