@@ -1,9 +1,45 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+    <style>
+
+    </style>
+
+    <title>Contacts | Swimtrack</title>
+
+    <script>
+    	function showSuccess()
+    	{
+    		let today = new Date();
+    		let showTime = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();;
+    			swal({
+					  title: "Thank you for signing in",
+					  text: "You are signed in at "+ showTime,
+					  icon: "success",
+					  button : false,
+					  timer: 3000,
+					});
+    	}
+
+    </script>
+    
+
+  </head>
+  <body>	
+
 <?php
+
+	include "links.php";
 if(isset($_POST['name']))
 {
     include"database.php";
-    include "links.php";
-
+    
   //  --------------------------- Fetching the location coordinates----------------------
 
   $apiUrl = "https://ipinfo.io/";
@@ -19,6 +55,7 @@ if(isset($_POST['name']))
   $city = $resultArray['city'];
   $date = date("Y/m/d");
 
+  echo"<script> showSuccess(); </script>";
 
 
 
@@ -32,21 +69,6 @@ if(isset($_POST['name']))
 
 ?>
 
-<!doctype html>
-<html lang="en">
-  <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-    
-
-    <title>Contacts | Swimtrack</title>
-    
-
-  </head>
-  <body>
-
         
        <div class="container-fluid text-center">
          <form class="form-signin" action="contactinfo.php" method="POST">
@@ -55,12 +77,10 @@ if(isset($_POST['name']))
   				<input type="text" id="inptName" name="name" class="form-control" placeholder="Name" required="" autofocus="">
   			</div>
   			<div class="submit-button my-4">
-  			<!-- <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button> -->
-  				<button class="btn btn-md btn-success">Start</button>
+  				<button class="btn btn-md btn-success" onclick=" showTime = showSuccess()">Start</button>
   			</div>
 		</form>
       </div>
-
 
 
     <!-- Optional JavaScript -->

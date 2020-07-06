@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Bootstrap Example</title>
+  <title>User-Time Info</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   
@@ -73,15 +73,10 @@
 
                 <?php
 
-
-                // $selectQuery = " select * from starttimeinfo where month(date)=$currentMonth ";
-                // $selectQuery = " select * from starttimeinfo where month(date)=$showtype ";
                 $selectQuery = " select * from starttimeinfo where day(date)=$fetchByDays ";
 
 
                 $query = mysqli_query($con,$selectQuery);
-
-                // $nums = mysqli_num_rows($query);
 
                 while($res = mysqli_fetch_array($query))
                 {
