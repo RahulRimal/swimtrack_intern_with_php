@@ -18,10 +18,7 @@ if(isset($_POST['name']))
   $locaction = $resultArray['loc'];
   $city = $resultArray['city'];
   $date = date("Y/m/d");
-  
-  
 
-  
 
 
 

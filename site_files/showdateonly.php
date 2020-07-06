@@ -51,7 +51,7 @@
     
     ?>
 
-    <div class="container text-center">
+    <div class="container text-center" style="margin-top: 200px;">
         <h2><?php echo $numToAlpha[$currentMonth]; ?></h2>
     </div>
         
