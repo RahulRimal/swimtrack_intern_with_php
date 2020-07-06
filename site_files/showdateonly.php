@@ -47,16 +47,18 @@
 
     $listOfDays = array();
 
+    $selectedMonth = $_GET['selectedMonth'];
+
 
     
     ?>
 
     <div class="container text-center" style="margin-top: 200px;">
-        <h2><?php echo $numToAlpha[$currentMonth]; ?></h2>
+        <h2><?php echo $numToAlpha[$selectedMonth]; ?></h2>
     </div>
         
     <?php
-    $selectQuery = " select * from starttimeinfo where month(date)=$currentMonth ";
+    $selectQuery = " select * from starttimeinfo where month(date)=$selectedMonth ";
 
     $query = mysqli_query($con, $selectQuery);
 
