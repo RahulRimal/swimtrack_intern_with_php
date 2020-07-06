@@ -53,6 +53,7 @@
     $currentYear = $currentDateSplit[0];
 
 
+
     
     ?>
     
@@ -74,6 +75,7 @@
         <div class="card border-warning mb-3" style="width: 180px; max-width: 18rem; height: 160px ; border-radius: 35px;">
           <div class="card-body text-warning my-5">
             <h5><a id="dayNoIs" class="card-title" href="#" onclick="sendDay(this)" style="text-decoration: none; color: black; padding: 19px;  "><?php echo $value;?></a></h5>
+</button>
           </div>
         </div>
     </div>

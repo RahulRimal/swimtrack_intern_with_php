@@ -15,6 +15,12 @@
       text-decoration: none;
       
     }
+
+    .card:hover
+    {
+        box-shadow: 7px 10px 12px 3px rgba(253,231,152,0.79);
+    }
+    
     </style>
 
 </head>
@@ -53,7 +59,7 @@
     
     ?>
 
-    <div class="container text-center" style="margin-top: 200px;">
+    <div class="container text-center" style="margin-top: 100px; margin-bottom: 50px;">
         <h2><?php echo $numToAlpha[$selectedMonth]; ?></h2>
     </div>
         
@@ -76,20 +82,33 @@
     $finalDayList = array_unique($listOfDays);
 
     ?>
-    <div class="container text-center">
-    <h3>
+    <!-- <div class="container text-center">
+    <h3> -->
+        <div class="container">
+        <div class="row" style="display: flex; justify-content: center;">
     <?php 
     foreach ($finalDayList as $dayssss)
     {
         ?>
+            <div class="col-md-2">
+        <div id="monthSection" class="container text-center">
+        <div class="card border-warning " style="width: 80px; height: 80px ; border-radius: 5px;">
+          <div class="card-body text-warning my-2">
+            <h5><a id="dayNoIs" href="#" onclick="sendDay(this)" style="text-decoration: none; color: black;"><?php echo $dayssss."&emsp;";?></a></h5>
+          </div>
+        </div>
+    </div>
+</div>
 
-        <a id="dayNoIs" href="#" onclick="sendDay(this)" style="text-decoration: none;"><?php echo $dayssss."&emsp;";?></a>
+        <!-- <a id="dayNoIs" href="#" onclick="sendDay(this)" style="text-decoration: none;"><?php// echo $dayssss."&emsp;";?></a> -->
 
         <?php
     }
     ?>
-    </h3>
     </div>
+    </div>
+    <!-- </h3>
+    </div> -->
 
         <script>
 

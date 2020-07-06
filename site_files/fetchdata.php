@@ -64,7 +64,6 @@
                 $currentDate = date('Y-m-d');
                 $currentDateSplit = explode("-", $currentDate);
                 $currentMonth = $currentDateSplit[1];
-                // $currentDay = $currentDateSplit[2];
 
 
                 ?>

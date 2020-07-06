@@ -7,10 +7,6 @@
 
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
-    <style>
-
-    </style>
-
     <title>Contacts | Swimtrack</title>
 
     <script>
@@ -26,46 +22,44 @@
 					  timer: 3000,
 					});
     	}
-
     </script>
     
-
   </head>
   <body>	
 
 <?php
 
 	include "links.php";
-if(isset($_POST['name']))
-{
-    include"database.php";
-    
-  //  --------------------------- Fetching the location coordinates----------------------
+	if(isset($_POST['name']))
+	{
+	    include"database.php";
+	    
+	  //  --------------------------- Fetching the location coordinates----------------------
 
-  $apiUrl = "https://ipinfo.io/";
+	  $apiUrl = "https://ipinfo.io/";
 
-  $receivedJson = file_get_contents($apiUrl);
+	  $receivedJson = file_get_contents($apiUrl);
 
-  $resultArray = json_decode($receivedJson,true);
+	  $resultArray = json_decode($receivedJson,true);
 
-	
+		
 
-	$name = $_POST['name'];
-  $locaction = $resultArray['loc'];
-  $city = $resultArray['city'];
-  $date = date("Y/m/d");
+	  $name = $_POST['name'];
+	  $locaction = $resultArray['loc'];
+	  $city = $resultArray['city'];
+	  $date = date("Y/m/d");
 
-  echo"<script> showSuccess(); </script>";
+	  echo"<script> showSuccess(); </script>";
 
 
 
-    $sql = "INSERT INTO `starttimeinfo` (`name`, `location`, `coordinates`, `date`, `time`) VALUES ('$name', '$locaction', '$city',  '$date', current_timestamp());";
-    
-    mysqli_query($con, $sql);
+	    $sql = "INSERT INTO `starttimeinfo` (`name`, `location`, `coordinates`, `date`, `time`) VALUES ('$name', '$locaction', '$city',  '$date', current_timestamp());";
+	    
+	    mysqli_query($con, $sql);
 
-    mysqli_close($con);
+	    mysqli_close($con);
 
-}
+	}
 
 ?>
 
@@ -77,7 +71,7 @@ if(isset($_POST['name']))
   				<input type="text" id="inptName" name="name" class="form-control" placeholder="Name" required="" autofocus="">
   			</div>
   			<div class="submit-button my-4">
-  				<button class="btn btn-md btn-success" onclick=" showTime = showSuccess()">Start</button>
+  				<button class="btn btn-md btn-success">Start</button>
   			</div>
 		</form>
       </div>
